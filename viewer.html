@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagem ampliada | Portal Costa España</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="viewer-body">
+  <div class="viewer-toolbar">
+    <a id="backLink" class="back" href="index.html">← Voltar ao álbum</a>
+  </div>
+  <main class="viewer-shell">
+    <img id="viewerImage" class="viewer-image" alt="Imagem ampliada">
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const img = params.get('img');
+    const from = params.get('from') || 'index.html';
+    const back = document.getElementById('backLink');
+    const image = document.getElementById('viewerImage');
+    if (from) back.href = from;
+    if (img) image.src = img;
+  </script>
+</body>
+</html>
